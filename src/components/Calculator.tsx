@@ -24,7 +24,7 @@ function Calculator({
           value={input}
           readOnly
         />
-        <div className=" place-self-center">
+        <div className=" place-self-center ">
           <button
             className="h-24 w-24 bg-gray-100 text-2xl font-bold border-2 border-gray-400"
             onClick={() => clearInput()}

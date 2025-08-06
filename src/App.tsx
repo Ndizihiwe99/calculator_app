@@ -6,34 +6,28 @@ function App() {
   const [isResult, setIsResult] = useState(false);
   //const [visible, setvisible] = useState(false);
 
-  const isOperator = (op: string) => ["+", "-", "*", "/"].includes(op);
+  //const isOperator = (char: string) => ["/", "+", "-", "*"].includes(char);
 
-  const handleInput = (num: string) => {
+  function handleInput(num: string) {
     if (isResult) {
-      if (isOperator(num)) {
-        setInput((prev: string) => prev + num);
-      } else {
-        setInput(num);
-      }
+      setInput(num);
       setIsResult(false);
     } else {
-      const lastchar = input.slice(-1);
-      if (isOperator(num) && isOperator(lastchar)) {
-        setInput((prev: string) => prev.slice(0, -1) + num);
-      } else {
-        setInput((prev: string) => prev + input);
-      }
+      setInput((prev: string) => prev + num);
     }
     if (num === "=") {
       setIsResult(true);
     } else {
       setIsResult(false);
     }
-  };
-
+    /*const lastChar = input.charAt(input.length - 1);
+    if (isOperator(num) && isOperator(lastChar)) {
+      setInput((prev: string) => prev.slice(0, -1) + num);
+    }*/
+  }
   const Result = () => {
     setInput((prev: string) => eval(prev).toString());
-    setIsResult(true);
+    //setIsResult(true);
   };
 
   return (
