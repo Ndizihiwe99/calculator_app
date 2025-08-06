@@ -13,7 +13,7 @@ function App() {
       setInput(num);
       setIsResult(false);
     } else {
-      setInput((prev: string) => prev + num);
+      setInput((input: string) => input + num);
     }
     if (num === "=") {
       setIsResult(true);
@@ -27,7 +27,7 @@ function App() {
   }
   const Result = () => {
     setInput((prev: string) => eval(prev).toString());
-    //setIsResult(true);
+    setIsResult(true);
   };
 
   return (
